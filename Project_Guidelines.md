@@ -38,7 +38,7 @@ The following checklist provides your team with an expanded listing of all eleme
 - [X] Read through the Project Guidelines.
 - [X] Form a team with 1-2 other individuals in your section of Stat 184.
 - [X] Complete Checkpoint #1 and make a team contract.
-- [ X] Create (and update) a detailed plan for your project.
+- [X] Create (and update) a detailed plan for your project.
   - [ ] Place a copy of your plan in your repo.
 - [ ] Brainstorm what you're interested in exploring and look for potential data sources. (See the [Data and Topics](#data-and-topics) for resources.)
 - [X] Locate appropriate data sources for your project. See the [Data Requirements](#data-requirements) section for important restrictions.
