@@ -1,10 +1,9 @@
 # Project Title
-
-Write a 1-2 sentences that quickly and clearly convey what your repo is for.
+PennDOT Car Crash Data (2024), Centre County | Severity and Collision Analysis
 
 ## Overview
 
-Expand on those introductory sentences with a brief but informative description of your project's purpose and goals. This section should help visitors decide whether they should dig deeper into your repo/project.
+This project will set to answer the questions, "What kinds of weather conditions was related to the most severe crashes in Centre County(2024)?" and "Which collision types are most common in Centre County in 2024? How do they differ by time and conditions?". The goal of this project to assess the different dangers that caused car crashes in 2024 and to then understand how that information can be used to prevent them in the future.
 
 ### Interesting Insight (Optional)
 
