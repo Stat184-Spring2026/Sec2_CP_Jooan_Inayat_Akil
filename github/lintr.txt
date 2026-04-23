@@ -1,0 +1,27 @@
+linters: linters_with_defaults(
+  assignment_linter = assignment_linter(
+    operator = "<-",
+    allow_trailing = FALSE
+  ),
+  infix_spaces_linter = infix_spaces_linter(
+    exclude_operators = c("*", "/")
+  ),
+  object_name_linter = object_name_linter(
+    styles = c("camelCase")
+    # Other styles include snake_case, CamelCase, SNAKE_CASE,
+    ## lowercase, UPPERCASE, dotted.case, and symbols
+  ),
+  pipe_consistency_linter = pipe_consistency_linter(
+    pipe = "|>" # Allows for either pipe but only one in each file
+    # can also use pipe = "%>%" OR pipe = "auto" to force single type
+  ),
+  quotes_linter = quotes_linter(
+    delimiter = c("\"") # Alternatively could use "'"
+  ),
+  return_linter = return_linter(return_style = "explicit"),
+  trailing_blank_lines_linter = NULL,
+  trailing_whitespace_linter = trailing_whitespace_linter(
+    allow_empty_lines = TRUE
+  )
+ )
+
