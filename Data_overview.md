@@ -2,7 +2,11 @@
 
 Source: PennDOT crash data (Centre County, 2024)
 
-Unit of analysis: crash level (each row = one crash, identified by variable CRN)
+https://experience.arcgis.com/experience/51809b06e7b140208a4ed6fbad964990/page/County#data_s=id%3AdataSource_4-19643bea6c4-layer-1%3A2105
+
+Unit of analysis: crash level (each row = one crash, id = CRN)
+
+
 
 ## Variables Used in Analysis
 
