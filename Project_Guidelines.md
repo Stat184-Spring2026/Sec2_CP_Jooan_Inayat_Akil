@@ -35,18 +35,18 @@ Checkpoints #1-#5 must be completed __*in person*__.
 
 The following checklist provides your team with an expanded listing of all elements necessary in your group project. You can keep track of what you have and have yet to complete by editing this file and placing an x inside of the square brackets at the start of each item (i.e., [x]).
 
-- [ ] Read through the Project Guidelines.
-- [ ] Form a team with 1-2 other individuals in your section of Stat 184.
-- [ ] Complete Checkpoint #1 and make a team contract.
-- [ ] Create (and update) a detailed plan for your project.
-  - [ ] Place a copy of your plan in your repo.
-- [ ] Brainstorm what you're interested in exploring and look for potential data sources. (See the [Data and Topics](#data-and-topics) for resources.)
-- [ ] Locate appropriate data sources for your project. See the [Data Requirements](#data-requirements) section for important restrictions.
-- [ ] Create a repo using the template repo. Name your repo `Sec#_CP_Name1_Name2_Name3` where `Sec#` is your section of Stat184 (i.e., `Sec1`, `Sec2`, `Sec4`, or `Sec5`) and `Name#` is replaced with the names of each team member.
-  - [ ] The owner of the repo should be `Stat184-Spring2026`. 
-  - [ ] Make sure that each team member has access to the repo.
-- [ ] Use GitHub appropriately.
-  - [ ] Have a proper README file for the repo.
+- [X] Read through the Project Guidelines.
+- [x] Form a team with 1-2 other individuals in your section of Stat 184.
+- [x] Complete Checkpoint #1 and make a team contract.
+- [x] Create (and update) a detailed plan for your project.
+  - [x] Place a copy of your plan in your repo.
+- [x] Brainstorm what you're interested in exploring and look for potential data sources. (See the [Data and Topics](#data-and-topics) for resources.)
+- [x] Locate appropriate data sources for your project. See the [Data Requirements](#data-requirements) section for important restrictions.
+- [x] Create a repo using the template repo. Name your repo `Sec#_CP_Name1_Name2_Name3` where `Sec#` is your section of Stat184 (i.e., `Sec1`, `Sec2`, `Sec4`, or `Sec5`) and `Name#` is replaced with the names of each team member.
+  - [x] The owner of the repo should be `Stat184-Spring2026`. 
+  - [x] Make sure that each team member has access to the repo.
+- [x] Use GitHub appropriately.
+  - [x] Have a proper README file for the repo.
   - [ ] Each member must have at least five (5) commits with appropriate subjects/messages.
   - [ ] The team should use the Issues feature regularly and appropriately.
   - [ ] The team should use branches; there should be at least a main branch and one "dev" branch for each team member.
