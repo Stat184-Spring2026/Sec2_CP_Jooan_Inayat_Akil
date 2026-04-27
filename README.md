@@ -2,47 +2,77 @@
 
 ## Overview
 
-This project will set to answer the questions, "What kinds of weather conditions was related to the most severe crashes in Centre County(2023-2024)?" and "Which collision types were most common in Centre County from 2023-2024? How do they differ by time and conditions?". The goal of this project to assess the different dangers that caused car crashes in 2024 and to then understand how that information can be used to prevent them in the future.
+This project will set to answer the questions: **"What patterns in collision type, time of day, and road conditions can explain crashes of varying severity in Centre County from 2023 to 2024?"**
 
 ### Interesting Insight (Optional)
 
-This is optional but highly recommended. You'll include one interesting insight from your project as part of the README. This insight is most effective when you include a visual. Keep in mind that this visual must be included as an image file (e.g., JPG, PNG, etc.). You can export plots created with `{ggplot2}` by using the function `ggsave`.
+**Drivers hitting a fixed object(non moving) was the most common collision type on every day of the week. This specific collision type happened on mostly Fridays and Saturdays**
+
+Crashes that were categorized as "Hit Fixed Object" accounted for 722 total incidents in 2023-2024. This was the highest collision count(by type) of the ten in the datasets. Friday and Saturday combined for 225 of those crashes, showing a end-of-week behavioral pattern.
+
+![Collision Type Frequency by Day of Week](Graphs&Tables_Images/Collision%20Type%20Frequency%20by%20Day%20of%20Week.png)
+
 
 ## Data Sources and Acknowledgements
 
 PennDOT. “PennDOT Crash Data.” PennDOTArcgis.com, PennDOT, 2026, experience.arcgis.com/experience/51809b06e7b140208a4ed6fbad964990/page/County#data_s=id%3AdataSource_4-19643bea6c4-layer-1%3A2105. Accessed 23 Apr. 2026.
 
-## Current Plan
+**Data files used:**
+- `CRASH_CENTRE_2023.csv` — 1,025 crash records
+- `CRASH_CENTRE_2024.csv` — 1,072 crash records
+- `Data_overview.md` — variable definitions and code legend
 
-1. Set the goal for data analysis
-2. Load the datasets into Rstudio
-3. Data wrangling using tidyverse
-  3.1. One teammate will work on Data wrangling
-  3.2 Jooan
-4. EDA of the datasets to assess how they can be used to answer our research question
-  4.1 One teammate will work on the EDA
-  4.2 Akil
-5. Conduct analysis and interpretation of the dataset
-6. Visualize the data answering our question
-7. Create the final capstone presentation
-  7.1 One teammate will work on the presentation with help from others
-  7.2 Inayat
+All data sourced directly from PennDOT's official crash database.
+Data is collected at the crash level — each row represents one
+reported crash, identified by a unique Crash Record Number (CRN).
+
+## Current Plan (Based on Guidelines.md)
+
+1. Finalize research question and project scope
+2. Load and stack both datasets using `bind_rows()` in R
+3. Data wrangling
+   - recode categorical variables, handle missing values, apply factor labels *(Owner: Jooan)*
+5. EDA
+   - produce summary tables and visualizations to answer the research question *(Owner: Akil)*
+     - At least one professional table per team member
+     - At least one professional plot per team member
+     - Plots must vary in geometry
+7. Write narrative text connecting visualizations to the
+   research question
+8. Address data provenance, FAIR/CARE principles in report
+9. Apply Google R Style Guide throughout all code
+10. Add code chunk headers (primary author + reviewer) to
+   every chunk
+11. Add alt text to all figures
+12. Compile citations and bibliography (MLA9)
+13. Write Author Contributions section
+14. Finalize and render QMD to PDF *(Owner: Inayat)*
+15. Submit PDF to Canvas with repo link
+
 
 ## Repo Structure
 
 ├── Data/
+│   ├── CRASH_CENTRE_2023.csv
 │   ├── CRASH_CENTRE_2024.csv
-│   ├── Data_overview.md        
-│   └── .lintr   
-├── .github/                
-│   ├── .gitattributes  
+│   ├── Data_overview.md
+│   └── .lintr
+├── Graphs&Tables_Images/
+│   └── Collision Type Frequency by Day of Week.png
+├── .github/
+│   ├── .gitattributes
 │   ├── .gitignore
-│   └── .lintr               
-├── MLA9.csl                 
-├── Project_Guidelines.md                
-├── README.md          
-├── apa7.csl   
-└── linting_script.R   
+│   └── .lintr
+├── MLA9.csl
+├── apa7.csl
+├── Project_Guidelines.md
+├── README.md
+└── linting_script.R
+
+## Style Guide
+
+All code in this project follows the
+[Google R Style Guide](https://google.github.io/styleguide/Rguide.html).
 
 ## Authors
 
