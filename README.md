@@ -4,7 +4,7 @@
 
 This project will set to answer the questions: **"What patterns in collision type, time of day, and road conditions can explain crashes of varying severity in Centre County from 2023 to 2024?"**
 
-### Interesting Insight (Optional)
+### Interesting Insight
 
 **Drivers hitting a fixed object(non moving) was the most common collision type on every day of the week. This specific collision type happened on mostly Fridays and Saturdays**
 
