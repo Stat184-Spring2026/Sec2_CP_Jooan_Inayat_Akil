@@ -1,5 +1,5 @@
 ---
-title: "Crash Project"
+title: "A Pattern Based Assessment of Car Crashes in Centre County (2023-2024)"
 author: "Akil Creswell, Jooan Choi, Inayat Roy"
 format: pdf
 editor: visual
