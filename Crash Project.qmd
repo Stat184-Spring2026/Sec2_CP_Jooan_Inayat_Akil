@@ -16,12 +16,12 @@ Drivers hitting a fixed object(non moving) was the most common collision type on
 :::
 
 Crashes that were categorized as "Hit Fixed Object" accounted for 722 total incidents in 2023-2024. This was the highest collision count(by type) of the ten in the datasets. Friday and Saturday combined for 225 of those crashes, showing a end-of-week behavioral pattern.
-
 ```{r}
-#| label: Insight chart
+#| label: insight-chart
 #| echo: false
 #| message: false
 #| warning: false
+#| fig-alt: "Line chart showing the frequency of each collision type across days of the week in Centre County, Pennsylvania for 2023 and 2024. Hit Fixed Object is the highest line on every day, peaking on Friday and Saturday. Rear-end and Angle collisions are the next most frequent. All other collision types remain low and relatively flat across the week."
 # Style Guide: Google R Style Guide
 # Primary Author: Akil Creswell
 # Reviewed by: ''
@@ -30,41 +30,33 @@ library(ggplot2)
 library(dplyr)
 library(readr)
 
-#Define mapping vectors using Data Dictionary
 collision_labels <- c(
   "0" = "Non-collision",
   "1" = "Rear-end",
   "2" = "Head-on",
-  "3" = "Rear-to-rear",
+  "3" = "Backing",
   "4" = "Angle",
   "5" = "Sideswipe",
   "6" = "Sideswipe (Opposite)",
   "7" = "Hit Fixed Object",
-  "8" = "Hit Pedestrian"
+  "98" = "Other",
+  "8" = "Hit Non-Motorist"
 )
 
 day_labels <- c(
-  "1" = "Sun",
-  "2" = "Mon",
-  "3" = "Tue",
-  "4" = "Wed",
-  "5" = "Thu",
-  "6" = "Fri",
-  "7" = "Sat"
+  "1" = "Sun", "2" = "Mon", "3" = "Tue",
+  "4" = "Wed", "5" = "Thu", "6" = "Fri", "7" = "Sat"
 )
-# Load datasets
+
 crash_2023 <- read_csv("Data/CRASH_CENTRE_2023.csv")
 crash_2024 <- read_csv("Data/CRASH_CENTRE_2024.csv")
-
-# Combine datasets
 crashes <- bind_rows(crash_2023, crash_2024)
 
-#Summarize combined dataset
 crash_summary <- crashes %>%
   mutate(
     collision_label = recode(
-      as.character(COLLISION_TYPE), 
-      !!!collision_labels, 
+      as.character(COLLISION_TYPE),
+      !!!collision_labels,
       .default = "Other"
     ),
     day_label = factor(
@@ -76,8 +68,6 @@ crash_summary <- crashes %>%
   group_by(day_label, collision_label) %>%
   summarise(count = n(), .groups = "drop")
 
-
-# Line chart
 ggplot(crash_summary, aes(
   x = day_label,
   y = count,
@@ -85,14 +75,15 @@ ggplot(crash_summary, aes(
   group = collision_label
 )) +
   geom_line(linewidth = 0.5, na.rm = TRUE) +
-  geom_point(size = 1, na.rm = TRUE) +
+  geom_point(aes(shape = collision_label), size = 1, na.rm = TRUE) +
   labs(
     title = "Collision Type Frequency by Day of Week",
     subtitle = "Centre County, Pennsylvania | 2023-2024",
     x = "Day of Week",
     y = "Number of Crashes",
     color = "Collision Type",
-    caption = "Source: PennDOT Crash Data"
+    caption = "Source: PennDOT Crash Data",
+    shape = "Collision Type"
   ) +
   theme_minimal() +
   theme(
@@ -101,8 +92,6 @@ ggplot(crash_summary, aes(
     plot.subtitle = element_text(size = 8),
     axis.text = element_text(size = 10)
   )
-```
-
 
 ```{r}
 # Centre County Crash Data Wrangling ----
