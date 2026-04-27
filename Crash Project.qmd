@@ -53,8 +53,8 @@ day_labels <- c(
   "7" = "Sat"
 )
 # Load datasets
-crash_2023 <- read_csv("J_A_I_STAT184Project_Datasets/CRASH_CENTRE_2023.csv")
-crash_2024 <- read_csv("J_A_I_STAT184Project_Datasets/CRASH_CENTRE_2024.csv")
+crash_2023 <- read_csv("Data/CRASH_CENTRE_2023.csv")
+crash_2024 <- read_csv("Data/CRASH_CENTRE_2024.csv")
 
 # Combine datasets
 crashes <- bind_rows(crash_2023, crash_2024)
