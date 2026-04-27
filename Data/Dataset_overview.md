@@ -17,136 +17,166 @@ Combined: 2,097 crash records across both years
 
 ## Variables Used in Analysis
 
-### MAX_SEVERITY_LEVEL
+### CRN
+- Description: Unique crash record identifier
+- Type: ID (categorical)
+- Note: Each row represents one crash
 
-Description: Highest injury severity level in the crash
+---
 
-Type: categorical
+### Year
+- Description: Year when the crash occurred
+- Type: numeric
+- Values:
+  - 2023
+  - 2024
 
-Values:
-  - 0: Property Damage Only
-  - 1: Fatal 2 | Suspected Serious Injury
-  - 3: Suspected Minor Injury
-  - 4: Possible Injury
-  - 8: Injury | Unknown Severity
-  - 9: Unknown if Injured 
+---
 
+### Month
+- Description: Month when the crash occurred
+- Type: categorical
+- Source: CRASH_MONTH
+- Values:
+  - 1: January
+  - 2: February
+  - 3: March
+  - 4: April
+  - 5: May
+  - 6: June
+  - 7: July
+  - 8: August
+  - 9: September
+  - 10: October
+  - 11: November
+  - 12: December
 
-### COLLISION_TYPE
+---
 
-Description: Type of collision between vehicles or objects
+### Day
+- Description: Day of the week when the crash occurred
+- Type: categorical
+- Source: DAY_OF_WEEK
+- Values:
+  - 1: Sunday
+  - 2: Monday
+  - 3: Tuesday
+  - 4: Wednesday
+  - 5: Thursday
+  - 6: Friday
+  - 7: Saturday
 
-Type: categorical
+---
 
-Values:
+### Collision_Type
+- Description: Type of collision between vehicles or objects
+- Type: categorical
+- Source: COLLISION_TYPE
+- Values:
   - 0: Non-collision
   - 1: Rear-end
   - 2: Head-on
   - 3: Backing
   - 4: Angle
-  - 5: Sideswipe | same direction
-  - 6: Sideswipe | opposite direction
-  - 7: Hit Fixed Object
-  - 8: Hit Non-Motorist
-  - 9: Other/Unknown (Expired)
+  - 5: Sideswipe same direction
+  - 6: Sideswipe opposite direction
+  - 7: Hit fixed object
+  - 8: Hit non-motorist
   - 98: Other
 
-### WEATHER1
+---
 
-Description: Primary weather condition at time of crash
+### Severity_Level
+- Description: Highest injury severity level in the crash
+- Type: categorical
+- Source: MAX_SEVERITY_LEVEL
+- Values:
+  - 0: Property damage only
+  - 1: Fatal
+  - 2: Suspected serious injury
+  - 3: Suspected minor injury
+  - 4: Possible injury
+  - 8: Injury unknown severity
+  - 9: Unknown if injured
 
-Type: categorical
+---
 
- Values:
-  - 01: Blowing Sand, Soil, Dirt
-  - 02: Blowing Snow
-  - 03: Clear
-  - 04: Cloudy
-  - 05: Fog, Smog, Smoke
-  - 06: Freezing Rain or Freezing Drizzle
+### Severity_Group
+- Description: Simplified crash severity grouping created for analysis
+- Type: categorical
+- Created from: MAX_SEVERITY_LEVEL
+- Values:
+  - More severe: 1 (Fatal), 2 (Serious injury)
+  - Less severe: 0, 3, 4
+  - Unknown: 8, 9
 
-### WEATHER2
-
-Description: Secondary weather condition at time of crash (modifier to WEATHER1)
-
-Type: categorical
-
-Values: Same as Weather1
-
-
-
-### ROAD_CONDITION
-
-Description: Roadway surface condition
-
-Type: categorical
-
-Values:
-  - 01: Dry
-  - 02: Ice/Frost
-  - 03: Mud, Dirt, Gravel
-  - 04: Oil
-  - 05: Sand
-  - 06: Slush
-  - 07: Snow
-  - 08: Water (Standing or Moving)
-  - 09: Wet
-  - 98: Other
-
-
-### HOUR_OF_DAY
-
-Description: Hour of crash (0–23)
-
-Type: numeric
-
- 
-### DAY_OF_WEEK
-
-Description: Day of the week the crash occurred
-Type: Categorical
-Values: Monday to Sunday (1 to 7)
-
-
-### CRASH_MONTH
-Description: Month in which the crash occurred
-Type: Categorical (1 = January through 12 = December)
-
-### CRASH_YEAR
-Description: Year in which the crash occurred
-Type: Numeric
-Values in dataset: 2023, 2024
-
-### FATAL_COUNT
-Description: Number of persons killed as a result of the crash
-Type: Numeric (integer, 0 or more)
+---
 
 ### INJURY_COUNT
-Description: Total number of persons injured in the crash
-Type: Numeric (integer, 0 or more)
+- Description: Total number of injuries in the crash
+- Type: numeric
 
-### TOT_INJ_COUNT
-Description: Total injury count including all severity levels
-Type: Numeric
+---
 
-### URBAN_RURAL
-Description: Urbanization classification of crash location
-Type: Categorical
-Values:
+### FATAL_COUNT
+- Description: Total number of fatalities in the crash
+- Type: numeric
+
+---
+
+### Weather
+- Description: Primary weather condition at the time of the crash
+- Type: categorical
+- Source: WEATHER1
+- Values:
+  - 2: Blowing snow
+  - 3: Clear
+  - 4: Cloudy
+  - 5: Fog, smog, or smoke
+  - 6: Freezing rain or sleet
+  - 7: Rain
+  - 8: Severe crosswinds
+  - 9: Sleet or hail
+  - 10: Snow
+  - 98: Other
+  - 99: Unknown
+
+---
+
+### Road_Condition
+- Description: Surface condition of the roadway
+- Type: categorical
+- Source: ROAD_CONDITION
+- Values:
+  - 1: Dry
+  - 2: Ice or frost
+  - 3: Mud, dirt, or gravel
+  - 6: Slush
+  - 7: Snow
+  - 8: Water
+  - 9: Wet
+  - 98: Other
+  - 99: Unknown
+
+---
+
+### Area_Type
+- Description: Urban or rural classification of crash location
+- Type: categorical
+- Source: URBAN_RURAL
+- Values:
   - 1: Rural
   - 2: Urbanized
   - 3: Urban
 
-### ILLUMINATION
-Description: Light condition at time of crash
-Type: Categorical
-Values:
-  - 1: Daylight
-  - 2: Dark | no street lights
-  - 3: Dark | street lights on
-  - 4: Dusk
-  - 5: Dawn
-    
-### INTERSECTION_RELATED
-Description: Indicates whether the crash occurred at or related to an intersection
-Type: Categorical (Y / N)
+---
+
+### VEHICLE_COUNT
+- Description: Number of vehicles involved in the crash
+- Type: numeric
+
+---
+
+### TOTAL_UNITS
+- Description: Total number of units involved (vehicles and pedestrians)
+- Type: numeric
