@@ -308,3 +308,67 @@ crashClean <- crashProgress4 |>
     TOTAL_UNITS
   )
 ```
+
+```{r}
+# EDA and Plots ---
+## Needed packages: knitr, kableExtra
+library(knitr)
+library(kableExtra)
+
+# Data overview table ---
+overviewTable <- crashClean |>
+  summarize(
+    `Total Crashes` = n(),
+    `2023 Crashes` = sum(Year == 2023),
+    `2024 Crashes` = sum(Year == 2024),
+    `Total Injuries` = sum(INJURY_COUNT, na.rm = TRUE),
+    `Total Fatalities` = sum(FATAL_COUNT, na.rm = TRUE),
+    `Avg Vehicles per Crash` = round(mean(VEHICLE_COUNT, na.rm = TRUE), 2)
+  )
+
+overviewTable |>
+  kable(
+    caption = "Overview of Centre County Crashes, 2023-2024"
+  ) |>
+  kable_classic(lightable_options = "striped")
+
+# Crash Counts by Month and Year ---
+crashMonthly <- crashClean |>
+  filter(Month != "Unknown") |>
+  group_by(Year, Month) |>
+  summarize(
+    Count = n(),
+    .groups = "drop"
+  ) |>
+  mutate(
+    Month = factor(
+      Month,
+      levels = c(
+        "January", "February", "March", "April",
+        "May", "June", "July", "August",
+        "September", "October", "November", "December"
+      )
+    )
+  )
+
+ggplot(
+  data = crashMonthly,
+  mapping = aes(
+    x = Month,
+    y = Count,
+    fill = factor(Year)
+  )
+) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Crash Counts by Month and Year",
+    subtitle = "Centre County, Pennsylvania | 2023–2024",
+    x = "Month",
+    y = "Number of Crashes",
+    fill = "Year"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+```
