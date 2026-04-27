@@ -1,5 +1,4 @@
-# Project Title
-#### A Patternistic Assessment of Car Crashes in Centre County 
+# A Patternistic Assessment of Car Crashes in Centre County 
 
 ## Overview
 
