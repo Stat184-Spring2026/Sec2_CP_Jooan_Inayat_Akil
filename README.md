@@ -4,6 +4,7 @@
 
 This project will set to answer the questions: **"What patterns in collision type, time of day, and road conditions can explain crashes of varying severity in Centre County from 2023 to 2024?"**
 
+---
 ### Interesting Insight
 
 **Drivers hitting a fixed object(non moving) was the most common collision type on every day of the week. This specific collision type happened on mostly Fridays and Saturdays**
@@ -12,11 +13,12 @@ Crashes that were categorized as "Hit Fixed Object" accounted for 722 total inci
 
 ![Collision Type Frequency by Day of Week](Graphs&Tables_Images/Collision%20Type%20Frequency%20by%20Day%20of%20Week.png)
 
-
+---
 ## Data Sources and Acknowledgements
 
 PennDOT. “PennDOT Crash Data.” PennDOTArcgis.com, PennDOT, 2026, experience.arcgis.com/experience/51809b06e7b140208a4ed6fbad964990/page/County#data_s=id%3AdataSource_4-19643bea6c4-layer-1%3A2105. Accessed 23 Apr. 2026.
 
+---
 **Data files used:**
 - `CRASH_CENTRE_2023.csv` — 1,025 crash records
 - `CRASH_CENTRE_2024.csv` — 1,072 crash records
@@ -26,6 +28,7 @@ All data sourced directly from PennDOT's official crash database.
 Data is collected at the crash level — each row represents one
 reported crash, identified by a unique Crash Record Number (CRN).
 
+---
 ## Current Plan (Based on Guidelines.md)
 
 1. Finalize research question and project scope
@@ -49,7 +52,7 @@ reported crash, identified by a unique Crash Record Number (CRN).
 14. Finalize and render QMD to PDF *(Owner: Inayat)*
 15. Submit PDF to Canvas with repo link
 
-
+---
 ## Repo Structure
 
 ├── Data/
@@ -69,11 +72,13 @@ reported crash, identified by a unique Crash Record Number (CRN).
 ├── README.md
 └── linting_script.R
 
+---
 ## Style Guide
 
 All code in this project follows the
 [Google R Style Guide](https://google.github.io/styleguide/Rguide.html).
 
+---
 ## Authors
 
 Inayat Roy | Appied Data Science | ijr5230@psu.edu
