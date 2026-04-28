@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project will set to answer the questions: **"What patterns in collision type, time of day, and road conditions can explain crashes of varying severity in Centre County from 2023 to 2024?"**
+This project will set to answer the questions: **"What patterns in collision type, time of day, and road conditions characterize crashes of varying severity in Centre County from 2023 to 2024?"**
 
 ---
 ### Interesting Insight
@@ -17,6 +17,8 @@ Crashes that were categorized as "Hit Fixed Object" accounted for 722 total inci
 ## Data Sources and Acknowledgements
 
 PennDOT. “PennDOT Crash Data.” PennDOTArcgis.com, PennDOT, 2026, experience.arcgis.com/experience/51809b06e7b140208a4ed6fbad964990/page/County#data_s=id%3AdataSource_4-19643bea6c4-layer-1%3A2105. Accessed 23 Apr. 2026.
+
+Romanow Law Group. “Friday Is the Deadliest Day to Drive in Pennsylvania | Romanow Law Group.” Romanow Law Group, 27 Aug. 2025, www.romanowlawgroup.com/posts/friday-is-the-deadliest-day-to-drive-in-pennsylvania/. Accessed 26 Apr. 2026.
 
 ---
 **Data files used:**
@@ -59,16 +61,19 @@ reported crash, identified by a unique Crash Record Number (CRN).
 ├── Data/
 │   ├── CRASH_CENTRE_2023.csv
 │   ├── CRASH_CENTRE_2024.csv
-│   ├── Data_overview.md
-│   └── .lintr
+│   └── Crash_Data_Dictionary_2025.pdf
 ├── Graphs&Tables_Images/
 │   └── Collision Type Frequency by Day of Week.png
+├── formatting/
+│   ├── MLA9.csl
+│   └── apa7.csl
 ├── .github/
+│   ├── base.txt
 │   ├── .gitattributes
 │   ├── .gitignore
 │   └── .lintr
-├── MLA9.csl
-├── apa7.csl
+├── Crash Project.qmd
+├── Dataset_overview.md
 ├── Project_Guidelines.md
 ├── README.md
 └── linting_script.R

@@ -38,7 +38,7 @@ collision_labels <- c(
   "0" = "Non-collision",
   "1" = "Rear-end",
   "2" = "Head-on",
-  "3" = "rear-to-rear",
+  "3" = "Backing",
   "4" = "Angle",
   "5" = "Sideswipe",
   "6" = "Sideswipe (Opposite)",
