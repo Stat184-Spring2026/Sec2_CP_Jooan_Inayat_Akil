@@ -9,12 +9,12 @@ Accessed: April 23, 2026
 
 Unit of analysis: Crash level (each row = one crash, id = CRN)
 
-Primary Key: CRN (Crash Record Number, unique per crash)
+Primary Key: `CRN` (Crash Record Number, unique per crash)
 
 Files:
 
-CRASH_CENTRE_2023.csv: 1,025 crash records
-CRASH_CENTRE_2024.csv: 1,072 crash records
+- `CRASH_CENTRE_2023.csv`: 1,025 crash records
+- `CRASH_CENTRE_2024.csv`: 1,072 crash records
 Combined: 2,097 crash records across both years
 
 ## Variables Used in Analysis

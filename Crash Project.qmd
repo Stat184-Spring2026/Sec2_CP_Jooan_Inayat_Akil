@@ -28,10 +28,12 @@ Crashes that were categorized as "Hit Fixed Object" accounted for 722 total inci
 # Primary Author: Akil Creswell
 # Reviewed by: Jooan Choi
 
+#Load packages
 library(ggplot2)
 library(dplyr)
 library(readr)
 
+# set labels for 'collision type' and 'day'
 collision_labels <- c(
   "0" = "Non-collision",
   "1" = "Rear-end",
@@ -55,10 +57,12 @@ day_labels <- c(
   "7" = "Sat"
 )
 
+#load datasets and combine them
 crashRaw2023 <- read_csv("CRASH_CENTRE_2023.csv")
 crashRaw2024 <- read_csv("CRASH_CENTRE_2024.csv")
 crashes <- bind_rows(crash_2023, crash_2024)
 
+#create summary of combined dataset
 crash_summary <- crashes %>%
   mutate(
     collision_label = recode(
@@ -75,6 +79,7 @@ crash_summary <- crashes %>%
   group_by(day_label, collision_label) %>%
   summarise(count = n(), .groups = "drop")
 
+#make line plot
 ggplot(crash_summary, aes(
   x = day_label,
   y = count,
@@ -99,6 +104,7 @@ ggplot(crash_summary, aes(
     plot.subtitle = element_text(size = 8),
     axis.text = element_text(size = 10)
   )
+```
 
 //data-wrangling
 ```{r}
