@@ -16,6 +16,8 @@ Drivers hitting a fixed object(non moving) was the most common collision type on
 :::
 
 Crashes that were categorized as "Hit Fixed Object" accounted for 722 total incidents in 2023-2024. This was the highest collision count(by type) of the ten in the datasets. Friday and Saturday combined for 225 of those crashes, showing a end-of-week behavioral pattern.
+
+//insight-chart
 ```{r}
 #| label: insight-chart
 #| echo: false
@@ -24,7 +26,7 @@ Crashes that were categorized as "Hit Fixed Object" accounted for 722 total inci
 #| fig-alt: "Line chart showing the frequency of each collision type across days of the week in Centre County, Pennsylvania for 2023 and 2024. Hit Fixed Object is the highest line on every day, peaking on Friday and Saturday. Rear-end and Angle collisions are the next most frequent. All other collision types remain low and relatively flat across the week."
 # Style Guide: Google R Style Guide
 # Primary Author: Akil Creswell
-# Reviewed by: ''
+# Reviewed by: Jooan Choi
 
 library(ggplot2)
 library(dplyr)
@@ -44,12 +46,17 @@ collision_labels <- c(
 )
 
 day_labels <- c(
-  "1" = "Sun", "2" = "Mon", "3" = "Tue",
-  "4" = "Wed", "5" = "Thu", "6" = "Fri", "7" = "Sat"
+  "1" = "Sun",
+  "2" = "Mon",
+  "3" = "Tue",
+  "4" = "Wed",
+  "5" = "Thu",
+  "6" = "Fri",
+  "7" = "Sat"
 )
 
-crash_2023 <- read_csv("Data/CRASH_CENTRE_2023.csv")
-crash_2024 <- read_csv("Data/CRASH_CENTRE_2024.csv")
+crashRaw2023 <- read_csv("CRASH_CENTRE_2023.csv")
+crashRaw2024 <- read_csv("CRASH_CENTRE_2024.csv")
 crashes <- bind_rows(crash_2023, crash_2024)
 
 crash_summary <- crashes %>%
@@ -93,10 +100,14 @@ ggplot(crash_summary, aes(
     axis.text = element_text(size = 10)
   )
 
+//data-wrangling
 ```{r}
 # Centre County Crash Data Wrangling ----
 ## Import and clean 2024 Centre County crash data
 ## for crash severity and collision type analysis
+# Style Guide: Google R Style Guide
+# Primary Author: Jooan Choi 
+# Reviewed by: Akil Creswell
 
 rm(list = ls())
 
