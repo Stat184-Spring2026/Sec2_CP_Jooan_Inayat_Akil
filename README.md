@@ -55,6 +55,7 @@ reported crash, identified by a unique Crash Record Number (CRN).
 ---
 ## Repo Structure
 
+```text
 ├── Data/
 │   ├── CRASH_CENTRE_2023.csv
 │   ├── CRASH_CENTRE_2024.csv
@@ -71,6 +72,7 @@ reported crash, identified by a unique Crash Record Number (CRN).
 ├── Project_Guidelines.md
 ├── README.md
 └── linting_script.R
+```
 
 ---
 ## Style Guide

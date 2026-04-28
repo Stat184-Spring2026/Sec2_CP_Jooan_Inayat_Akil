@@ -2,17 +2,19 @@
 
 <!-- Style Guide: Google R Style Guide -->
 
-
-Source: PennDOT crash data (Centre County, 2024)
+Source: PennDOT Crash Data (Centre County, 2023–2024)
 
 URL: https://experience.arcgis.com/experience/51809b06e7b140208a4ed6fbad964990/page/County#data_s=id%3AdataSource_4-19643bea6c4-layer-1%3A2105
+Accessed: April 23, 2026
 
 Unit of analysis: Crash level (each row = one crash, id = CRN)
 
+Primary Key: `CRN` (Crash Record Number, unique per crash)
+
 Files:
 
-CRASH_CENTRE_2023.csv — 1,025 crash records
-CRASH_CENTRE_2024.csv — 1,072 crash records
+- `CRASH_CENTRE_2023.csv`: 1,025 crash records
+- `CRASH_CENTRE_2024.csv`: 1,072 crash records
 Combined: 2,097 crash records across both years
 
 ## Variables Used in Analysis
