@@ -59,16 +59,19 @@ reported crash, identified by a unique Crash Record Number (CRN).
 ├── Data/
 │   ├── CRASH_CENTRE_2023.csv
 │   ├── CRASH_CENTRE_2024.csv
-│   ├── Data_overview.md
-│   └── .lintr
+│   └── Crash_Data_Dictionary_2025.pdf
 ├── Graphs&Tables_Images/
 │   └── Collision Type Frequency by Day of Week.png
+├── formatting/
+│   ├── MLA9.csl
+│   └── apa7.csl
 ├── .github/
+│   ├── base.txt
 │   ├── .gitattributes
 │   ├── .gitignore
 │   └── .lintr
-├── MLA9.csl
-├── apa7.csl
+├── Crash Project.qmd
+├── Dataset_overview.md
 ├── Project_Guidelines.md
 ├── README.md
 └── linting_script.R
