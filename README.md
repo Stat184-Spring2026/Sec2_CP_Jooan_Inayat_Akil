@@ -84,5 +84,5 @@ All code in this project follows the
 ## Authors
 
 - Inayat Roy | Applied Data Science | ijr5230@psu.edu
-- Jooan | Social Data Analytics | jkc6529@psu.edu
+- Jooan Choi | Social Data Analytics | jkc6529@psu.edu
 - Akil Creswell | Applied Data Science | afc6377@psu.edu 
