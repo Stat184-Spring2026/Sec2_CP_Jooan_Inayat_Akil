@@ -20,7 +20,7 @@ PennDOT. “PennDOT Crash Data.” PennDOTArcgis.com, PennDOT, 2026, experience.
 
 Romanow Law Group. “Friday Is the Deadliest Day to Drive in Pennsylvania | Romanow Law Group.” Romanow Law Group, 27 Aug. 2025, www.romanowlawgroup.com/posts/friday-is-the-deadliest-day-to-drive-in-pennsylvania/. Accessed 26 Apr. 2026.
 
----
+
 **Data files used:**
 - `CRASH_CENTRE_2023.csv` — 1,025 crash records
 - `CRASH_CENTRE_2024.csv` — 1,072 crash records
