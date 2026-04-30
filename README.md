@@ -26,9 +26,7 @@ Romanow Law Group. “Friday Is the Deadliest Day to Drive in Pennsylvania | Rom
 - `CRASH_CENTRE_2024.csv` — 1,072 crash records
 - `Data_overview.md` — variable definitions and code legend
 
-All data sourced directly from PennDOT's official crash database.
-Data is collected at the crash level — each row represents one
-reported crash, identified by a unique Crash Record Number (CRN).
+All data sourced directly from PennDOT's official crash database. Data is collected at the crash level — each row represents one reported crash, identified by a unique Crash Record Number (CRN).
 
 ---
 ## Current Plan (Based on Guidelines.md)
