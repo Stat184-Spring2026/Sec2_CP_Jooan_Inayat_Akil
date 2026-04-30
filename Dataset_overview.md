@@ -126,25 +126,6 @@ Combined: 2,097 crash records across both years
 
 ---
 
-### Weather
-- Description: Primary weather condition at the time of the crash
-- Type: categorical
-- Source: WEATHER1
-- Values:
-  - 2: Blowing snow
-  - 3: Clear
-  - 4: Cloudy
-  - 5: Fog, smog, or smoke
-  - 6: Freezing rain or sleet
-  - 7: Rain
-  - 8: Severe crosswinds
-  - 9: Sleet or hail
-  - 10: Snow
-  - 98: Other
-  - 99: Unknown
-
----
-
 ### Road_Condition
 - Description: Surface condition of the roadway
 - Type: categorical
