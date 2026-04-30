@@ -1,13 +1,90 @@
 ---
 title: "A Pattern Based Assessment of Car Crashes in Centre County (2023-2024)"
 author: "Akil Creswell, Jooan Choi, Inayat Roy"
-format: pdf
+format: 
+  pdf:
+    fontsize: 12pt
+    include-in-header:
+      text: |
+        \usepackage{sectsty}
+        \subsectionfont{\centering\LARGE}
+        \subsubsectionfont{\centering\large}
 editor: visual
+bibliography: references.bib
+csl: MLA9.csl
 ---
 
-## Overview
+## Introduction {#sec-introduction}
 
-This project will set to answer the questions: "What patterns in collision type, time of day, and road conditions can explain crashes of varying severity in Centre County from 2023 to 2024?"
+From 2023–2024 there was a recorded 2,097 crashes, which range from minor property damage to fatal collisions. The main goal of this project is examine crash records collected by Pennsylvania Department of Transportation (PennDOT) to answer the following research question: **"What patterns in collision type and road conditions characterize crashes of varying severity in Centre County from 2023 to 2024?"**
+
+The secondary goal is to explore the data to be able discern possible ways to curb accidents in Centre County. The conditions are seemingly never consistent due to unpredictable weather patterns in the area, which makes condition based analysis like this one important.
+
+This analysis follows the Exploratory Data Analysis paradigm and uses the Tidyverse coding paradigm in R, following the Google R Style Guide.
+
+{{< pagebreak >}}
+
+## Data
+
+### Data Provenance
+
+The data used in this project was obtained for the Pennsylvania Department of Transportation (PennDOT) crash data portal [@penndot2026]. Two CSV files were downloaded: CRASH_CENTRE_2023.csv, containing 1,025 crash records, and CRASH_CENTRE_2024.csv, containing 1,072 crash records, to combine for a total of 2,097 records across both years. Each record represents a unique crash event with ID, Crash Record Number (CRN).
+
+Local Centre County law enforcement collected the data and submitted it into PennDOT's statewide systems. To interpret the data we used the data dictionary provided by PennDOT, which was obtained from the same portal.
+
+### FAIR and CARE Principles
+
+#### FAIR
+
+There are several ways the PennDOT data satisfies FAIR principles. The data are *findable* and *accessible* with the portal being publicly accessible, and organized (county, year). The data are *interpretable* in CSV format and a given data dictionary to make data simple to read. Reproducibility is supported given that CSVs can be downloaded from one URL.
+
+A challenge the principle of *reusability* is that multiple columns are populated with mostly null values making variations in scope difficult.
+
+#### CARE
+
+This dataset does not directly involve Indigenous communities as there is no information about the people involved in the car crashes. It focuses purely on the confounding factors of the crashes. Despite that, the conclusions from this analysis should not be used to perpetuate any negativity of any kind towards any people, groups, or communities.
+
+### Case and Attribute Description
+
+Each case in this dataset is an individual car crash recorded in Centre County, Pennsylvania between January 1st, 2023 – December 31st, 2024 identified by Crash Record Number(CRN). Each unit is a crash, not a vehicle nor individual.
+
+The following attributes were chosen to contribute to answering our research question.
+
+* `Collision_Type`
+  * How the crash occurred
+  * 10 unique categories
+* `Severity_Level`
+  * Highest injury level sustained in crash
+  * 7 unique categories
+* `Severity_Group`
+  * Derives from `MAX_SEVERITY_LEVEL`
+  * Groups containing injury severity level
+    * `More Severe`
+      * 1: Fatal
+      * 2: Serious
+    * `Less Severe`
+      * 0: Property damage
+      * 3: Minor injury
+      * 4: Possible injury
+    * `Unknown`
+      * 8: Injury unknown severity
+      * 9: Unknown
+* `Road_Condition`
+  * Surface condition of the roadway
+  * 9 unique categories
+* `Day`
+  * Day of the week the crash occurred
+* `Month`
+  * Month the crash occurred
+* `Area_Type`
+  * Rural or Urbanized classification of crash location
+* `INJURY_COUNT`
+  * Total injuries occurred in crash
+  * data type: numeric
+* `FATAL_COUNT`
+  * Total fatalities occurred in crash
+  * data type: numeric
+
 
 ### **Interesting Insight**
 
