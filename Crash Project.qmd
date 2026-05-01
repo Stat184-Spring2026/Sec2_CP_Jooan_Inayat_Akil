@@ -42,7 +42,7 @@ library(dplyr)
 library(readr)
 ```
 
-## Introduction {#sec-introduction}
+## Introduction 
 
 From 2023-2024 there was a recorded 2,097 crashes, which range from minor property damage to fatal collisions. The main goal of this project is examine crash records collected by Pennsylvania Department of Transportation (PennDOT) to answer the following research question: **What patterns in collision type and road conditions characterize crashes of varying severity in Centre County from 2023 to 2024?**
 
@@ -348,7 +348,9 @@ The dominant pattern across all four seasons is that most crashes occurred on `D
 #| echo: false
 #| message: false
 #| warning: false
-#| fig-alt: Four tables showing crash patterns by road condition, area type,  top collision type, and top severity level for each season in Centre  County, Pennsylvania, 2023-2024.
+#| fig-alt: "Four tables showing crash patterns by road condition, area type,  
+#| top collision type, and top severity level for each season in Centre  County, 
+#| Pennsylvania, 2023-2024."
 #| results: asis
 # Style Guide: Google R Style Guide
 # Primary Author: Akil Creswell
@@ -414,9 +416,9 @@ for (s in seasons) {
       booktabs = TRUE
     ) |>
     kable_styling(
-  font_size = 11,
-  latex_options = c("HOLD_position", "bordered")) |>
-  print(table_output)
+      font_size = 11,
+      latex_options = c("HOLD_position", "bordered")) |>
+      print(table_output)
 }
 
 ```
@@ -434,13 +436,19 @@ Drivers hitting a fixed object(non moving) was the most common collision type on
 #| echo: false
 #| message: false
 #| warning: false
-#| fig-alt: "Line chart showing the frequency of each collision type across days of the week in Centre County, Pennsylvania for 2023 and 2024. Hit Fixed Object is the highest line on every day, peaking on Friday and Saturday. Rear-end and Angle collisions are the next most frequent. All other collision types remain low and relatively flat across the week."
+#| fig-alt: "Line chart showing the frequency of each collision type 
+#| across days of the week in Centre County, 
+#| Pennsylvania for 2023 and 2024. Hit Fixed Object is the 
+#| highest line on every day, peaking on Friday and Saturday. 
+#| Rear-end and Angle collisions are the next most frequent. 
+#| All other collision types remain low and relatively flat across the week."
 #| fig-width: 8
 #| fig-height: 7
 # Style Guide: Google R Style Guide
 # Primary Author: Akil Creswell
 # Reviewed by: Jooan Choi
 
+# Step 1: Define collision type label map ----
 collision_labels <- c(
   "0" = "Non-collision",
   "1" = "Rear-end",
@@ -454,6 +462,7 @@ collision_labels <- c(
   "98" = "Other"
 )
 
+# Step 2: Define day of week label map ----
 day_labels <- c(
   "1" = "Sun",
   "2" = "Mon",
@@ -465,6 +474,7 @@ day_labels <- c(
 )
 
 
+# Step 3: Summarise crash counts by day and collision type ----
 crash_summary <- crashClean |>
   mutate(
     collision_label = case_when(
@@ -491,6 +501,7 @@ crash_summary <- crashClean |>
   group_by(day_label, collision_label) |>
   summarise(count = n(), .groups = "drop")
 
+# Step 4: Plot line chart ----
 ggplot(crash_summary, aes(
   x = day_label,
   y = count,
