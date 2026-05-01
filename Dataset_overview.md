@@ -16,7 +16,39 @@ Files:
 - `CRASH_CENTRE_2023.csv`: 1,025 crash records
 - `CRASH_CENTRE_2024.csv`: 1,072 crash records
 Combined: 2,097 crash records across both years
+---
 
+## PCIP Plan
+
+### Collision Type Frequency by Day of Week (insight-chart)
+- **Plan:** Identify which collision type occurs most frequently
+  across days of the week to surface behavioral patterns
+- **Code:** Line chart with shape aesthetic using ggplot2;
+  data combined from 2023 and 2024 CSVs
+- **Improve:** Added shape aesthetic for accessibility;
+  corrected collision labels; fixed chunk options
+- **Plan (next):** Narrative EPT written to accompany figure
+
+### Seasonal Crash Tables (seasonal-crash-tables)
+- **Plan:** Summarize crash patterns by road condition and
+  area type across four seasons to identify seasonal trends
+- **Code:** `case_when()` for season derivation; `group_by()`
+  and `summarise()` for mode collision and severity per group;
+  `kable()` loop for four tables
+- **Improve:** Fixed `align` vector length; removed
+  `hold_position` conflict; debugged loop variable scoping
+- **Plan (next):** EPT narrative written to accompany tables
+
+### Road Condition x Severity Heatmap (road-severity-heatmap)
+- **Plan:** Visualize crash counts across road conditions
+  segmented by severity group to assess road condition impact
+- **Code:** `geom_tile()` with `geom_text()` labels;
+  road conditions ordered by total volume descending
+- **Improve:** Added axis title margins; refined color gradient;
+  updated alt text to reflect key patterns
+- **Plan (next):** EPT narrative written to accompany figure
+
+---
 ## Variables Used in Analysis
 
 ### CRN
@@ -24,16 +56,12 @@ Combined: 2,097 crash records across both years
 - Type: ID (categorical)
 - Note: Each row represents one crash
 
----
-
 ### Year
 - Description: Year when the crash occurred
 - Type: numeric
 - Values:
   - 2023
   - 2024
-
----
 
 ### Month
 - Description: Month when the crash occurred
@@ -53,8 +81,6 @@ Combined: 2,097 crash records across both years
   - 11: November
   - 12: December
 
----
-
 ### Day
 - Description: Day of the week when the crash occurred
 - Type: categorical
@@ -67,8 +93,6 @@ Combined: 2,097 crash records across both years
   - 5: Thursday
   - 6: Friday
   - 7: Saturday
-
----
 
 ### Collision_Type
 - Description: Type of collision between vehicles or objects
@@ -86,8 +110,6 @@ Combined: 2,097 crash records across both years
   - 8: Hit non-motorist
   - 98: Other
 
----
-
 ### Severity_Level
 - Description: Highest injury severity level in the crash
 - Type: categorical
@@ -101,8 +123,6 @@ Combined: 2,097 crash records across both years
   - 8: Injury unknown severity
   - 9: Unknown if injured
 
----
-
 ### Severity_Group
 - Description: Simplified crash severity grouping created for analysis
 - Type: categorical
@@ -112,19 +132,13 @@ Combined: 2,097 crash records across both years
   - Less severe: 0, 3, 4
   - Unknown: 8, 9
 
----
-
 ### INJURY_COUNT
 - Description: Total number of injuries in the crash
 - Type: numeric
 
----
-
 ### FATAL_COUNT
 - Description: Total number of fatalities in the crash
 - Type: numeric
-
----
 
 ### Road_Condition
 - Description: Surface condition of the roadway
@@ -141,8 +155,6 @@ Combined: 2,097 crash records across both years
   - 98: Other
   - 99: Unknown
 
----
-
 ### Area_Type
 - Description: Urban or rural classification of crash location
 - Type: categorical
@@ -152,13 +164,9 @@ Combined: 2,097 crash records across both years
   - 2: Urbanized
   - 3: Urban
 
----
-
 ### VEHICLE_COUNT
 - Description: Number of vehicles involved in the crash
 - Type: numeric
-
----
 
 ### TOTAL_UNITS
 - Description: Total number of units involved (vehicles and pedestrians)
