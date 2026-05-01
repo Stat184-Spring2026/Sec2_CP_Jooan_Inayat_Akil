@@ -11,7 +11,7 @@ This project will set to answer the questions: **"What patterns in collision typ
 
 Crashes that were categorized as "Hit Fixed Object" accounted for 722 total incidents in 2023-2024. This was the highest collision count(by type) of the ten in the datasets. Friday and Saturday combined for 225 of those crashes, showing a end-of-week behavioral pattern.
 
-![Collision Type Frequency by Day of Week](Graphs&Tables_Images/Collision%20Type%20Frequency%20by%20Day%20of%20Week.png)
+![Collision Type Frequency by Day of Week](plots_tables/Collision Type Frequency by Day of Week.png)
 
 ---
 ## Data Sources and Acknowledgements
