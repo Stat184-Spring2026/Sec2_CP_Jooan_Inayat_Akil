@@ -21,8 +21,8 @@ format:
         \subsubsectionfont{\centering\large}
 
 editor: visual
-bibliography: J_A_I_STAT184Project_Datasets/references.bib
-csl: J_A_I_STAT184Project_Datasets/formatting/MLA9.csl
+bibliography: references.bib
+csl: MLA9.csl
 ---
 
 ```{r}
@@ -166,8 +166,8 @@ The following attributes were chosen to contribute to answering our research que
 # Step 1: Load Data ----
 ## Needed data: 2024 Centre County crash data
 
-crashRaw2023 <- read_csv("J_A_I_STAT184Project_Datasets/CRASH_CENTRE_2023.csv")
-crashRaw2024 <- read_csv("J_A_I_STAT184Project_Datasets/CRASH_CENTRE_2024.csv")
+crashRaw2023 <- read_csv("CRASH_CENTRE_2023.csv")
+crashRaw2024 <- read_csv("CRASH_CENTRE_2024.csv")
 
 # Combine datasets
 crashRaw <- bind_rows(
