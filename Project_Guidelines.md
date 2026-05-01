@@ -47,37 +47,37 @@ The following checklist provides your team with an expanded listing of all eleme
   - [x] Make sure that each team member has access to the repo.
 - [x] Use GitHub appropriately.
   - [x] Have a proper README file for the repo.
-  - [ ] Each member must have at least five (5) commits with appropriate subjects/messages.
-  - [ ] The team should use the Issues feature regularly and appropriately.
-  - [ ] The team should use branches; there should be at least a main branch and one "dev" branch for each team member.
-  - [ ] The team should appropriately use Pull Requests to merge branches; one member should make the Pull Request while another should review and approve the request.
-- [ ] Read in your data and perform any necessary data tidying, wrangling, and cleaning.
-- [ ] Conduct Exploratory Data Analysis.
-  - [ ] Set the stage for your analysis (i.e., prepare an introduction on your topic).
-  - [ ] Describe the data provenance; see See the [Data Requirements](#data-requirements) for additional information.
-  - [ ] Explain how the data satisfy (or not) both the FAIR and CARE principles.
-  - [ ] Describe what attributes you'll focus your analysis on (mention if they are part of your data sets or if you created them out of your data sets).
-  - [ ] Create multiple data visualizations (tables and figures) that assist both the team and readers in understanding the data.
-    - [ ] Data visualizations should show a variety of your skills and geometries.
-    - [ ] Each team member should be the main author behind __at least one__ professional looking table (__not__ a raw data table).
-    - [ ] Each team member should be the main author behind __at least one__ professional looking plot/graph. The plots/graphs should not all be the same kind of plot/graph.
-- [ ] Prepare a reproducible report.
-  - [ ] Use a QMD file; the output type is PDF.
-  - [ ] The report should be well organized with section headings.
-  - [ ] Code should __only__ be found in a Code Appendix at the end for a PDF, not in the body of your report.
-  - [ ] Data visualizations should be appropriately sized--not too small and not too big.
-    - [ ] Figures and Tables should have appropriate captions and appropriately cross-referenced in the body of your report.
-    - [ ] All figures should have Alt Text set.
-    - [ ] There should be narrative text helping readers to better understand what each visualization helps them to learn about the data and context.
-  - [ ] Your report should contain narrative text (beyond explaining tables and figures) that explains the overall data story or context and helps the reader make sense of what is going on. That is, take the reader on a journey.
-  - [ ]  You should properly cite any work you reference (including data) according to your choice of citation style. We've included files for APA7 and MLA9 as part of this template. If you want to use a different citation style, you will need download the CSL file from the [Zotero Style Respository](https://www.zotero.org/styles/) and include it in your team's repo.
-  - [ ] All code should be written according to a Style Guide of your choice. List this Style Guide as a code comment in your first code chunk.
-  - [ ] All code chunks should have a Code Header that contains who the primary author of the chunk is and who reviewed the chunk.
-  - [ ] Follow and apply the principles and elements of Open Science (and PCIP).
-  - [ ] Include an Author Contribution section at the end of the report, before the Code Appendix.
-- [ ] Sign up for and complete a Work-in-Progress Presentation ([details](#work-in-progress-presentations) below)
-- [ ] Finalize your work and submit your report as a __PDF__ to the appropriate submission portal in Canvas by the deadline.
-  - [ ] As a comment on your submission, include a link to your team's project repo.
+  - [x] Each member must have at least five (5) commits with appropriate subjects/messages.
+  - [x] The team should use the Issues feature regularly and appropriately.
+  - [x] The team should use branches; there should be at least a main branch and one "dev" branch for each team member.
+  - [x] The team should appropriately use Pull Requests to merge branches; one member should make the Pull Request while another should review and approve the request.
+- [x] Read in your data and perform any necessary data tidying, wrangling, and cleaning.
+- [x] Conduct Exploratory Data Analysis.
+  - [x] Set the stage for your analysis (i.e., prepare an introduction on your topic).
+  - [x] Describe the data provenance; see See the [Data Requirements](#data-requirements) for additional information.
+  - [x] Explain how the data satisfy (or not) both the FAIR and CARE principles.
+  - [x] Describe what attributes you'll focus your analysis on (mention if they are part of your data sets or if you created them out of your data sets).
+  - [x] Create multiple data visualizations (tables and figures) that assist both the team and readers in understanding the data.
+    - [x] Data visualizations should show a variety of your skills and geometries.
+    - [x] Each team member should be the main author behind __at least one__ professional looking table (__not__ a raw data table).
+    - [x] Each team member should be the main author behind __at least one__ professional looking plot/graph. The plots/graphs should not all be the same kind of plot/graph.
+- [x] Prepare a reproducible report.
+  - [x] Use a QMD file; the output type is PDF.
+  - [x] The report should be well organized with section headings.
+  - [x] Code should __only__ be found in a Code Appendix at the end for a PDF, not in the body of your report.
+  - [x] Data visualizations should be appropriately sized--not too small and not too big.
+    - [x] Figures and Tables should have appropriate captions and appropriately cross-referenced in the body of your report.
+    - [x] All figures should have Alt Text set.
+    - [x] There should be narrative text helping readers to better understand what each visualization helps them to learn about the data and context.
+  - [x] Your report should contain narrative text (beyond explaining tables and figures) that explains the overall data story or context and helps the reader make sense of what is going on. That is, take the reader on a journey.
+  - [x]  You should properly cite any work you reference (including data) according to your choice of citation style. We've included files for APA7 and MLA9 as part of this template. If you want to use a different citation style, you will need download the CSL file from the [Zotero Style Respository](https://www.zotero.org/styles/) and include it in your team's repo.
+  - [x] All code should be written according to a Style Guide of your choice. List this Style Guide as a code comment in your first code chunk.
+  - [x] All code chunks should have a Code Header that contains who the primary author of the chunk is and who reviewed the chunk.
+  - [x] Follow and apply the principles and elements of Open Science (and PCIP).
+  - [x] Include an Author Contribution section at the end of the report, before the Code Appendix.
+- [x] Sign up for and complete a Work-in-Progress Presentation ([details](#work-in-progress-presentations) below)
+- [x] Finalize your work and submit your report as a __PDF__ to the appropriate submission portal in Canvas by the deadline.
+  - [x] As a comment on your submission, include a link to your team's project repo.
 - [ ] Each team member must complete their Peer & Self Evaluations for working together on this project. This will be an assignment in MyOpenMath and needs to be completed by the deadline.
 
 ## Data Requirements
