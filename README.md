@@ -60,21 +60,25 @@ All data sourced directly from PennDOT's official crash database. Data is collec
 │   ├── CRASH_CENTRE_2023.csv
 │   ├── CRASH_CENTRE_2024.csv
 │   └── Crash_Data_Dictionary_2025.pdf
-├── Graphs&Tables_Images/
-│   └── Collision Type Frequency by Day of Week.png
 ├── formatting/
 │   ├── MLA9.csl
 │   └── apa7.csl
-├── .github/
+├── github/
 │   ├── base.txt
-│   ├── .gitattributes
-│   ├── .gitignore
-│   └── .lintr
+│   ├── gitattributes.txt
+│   ├── gitignore.txt
+│   └── lintr.txt
+├── plots_tables/
+│   ├── Collision Type Frequency by Day of Week.png
+│   ├── RC_S_heatmap.png
+│   ├── Summer_Fall_tables.png
+│   └── Winter_Spring_tables.png
 ├── Crash Project.qmd
 ├── Dataset_overview.md
 ├── Project_Guidelines.md
 ├── README.md
-└── linting_script.R
+├── linting_script.R
+└── references.bib
 ```
 
 ---
