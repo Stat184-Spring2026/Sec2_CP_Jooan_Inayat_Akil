@@ -410,16 +410,187 @@ crash_monthly <- crashClean |>
     Count = n(),
     .groups = "drop"
   ) |>
+  filter(Crashes >= 5)
+
+# Step 3: Render one table per season ----
+seasons <- c("Winter", "Spring", "Summer", "Fall")
+
+cat("\\captionsetup{labelformat=empty}\n")
+
+for (s in seasons) {
+  table_output <- seasonal_summary |>
+    filter(Season == s) |>
+    select(
+      Road_Condition, Area_Type, Top_Collision,
+      Top_Severity, Crashes
+    ) |>
+    arrange(Road_Condition, Area_Type) |>
+    kable(
+      format = "latex",
+      caption = paste(
+        s, ": Crash patterns by Road Condition",
+        "and Area Type (Centre County, 2023-2024)"
+      ),
+      col.names = c(
+        "Road Condition", "Area Type",
+        "Top Collision", "Top Severity", "Crashes"
+      ),
+      align = c("l", "l", "l", "l", "r"),
+      booktabs = TRUE
+    ) |>
+    kable_styling(
+      font_size = 11,
+      latex_options = c("HOLD_position", "bordered")) |>
+      print(table_output)
+}
+
+```
+
+{{< pagebreak >}}
+
+### **Interesting Insight**
+
+The plot displays frequency of collision types on each day of the week.
+
+Drivers hitting a fixed object(non moving) was the most common collision type on every day of the week. This specific collision type happened on mostly Fridays and Saturdays. Crashes that were categorized as `Hit Fixed Object` accounted for 722 total incidents in 2023-2024 and was the dominant outcome. This was the highest collision count(by type) of the ten in the datasets. Friday and Saturday combined for 225 of those crashes, showing an end-of-week behavioral pattern. This data aligns with the finding referenced in the article from @romanow2025 that discussed how Friday is Pennsylvania's most common crash day. Some of the causes discussed were heavier traffic, drunk/drugged driving, and Increased fatigue which all seem to be major causes for car crashes.
+
+```{r}
+#| label: insight-chart
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-alt: "Line chart showing the frequency of each collision type 
+#| across days of the week in Centre County, 
+#| Pennsylvania for 2023 and 2024. Hit Fixed Object is the 
+#| highest line on every day, peaking on Friday and Saturday. 
+#| Rear-end and Angle collisions are the next most frequent. 
+#| All other collision types remain low and relatively flat across the week."
+#| fig-width: 8
+#| fig-height: 7
+# Style Guide: Google R Style Guide
+# Primary Author: Akil Creswell
+# Reviewed by: Jooan Choi
+
+# Step 1: Define collision type label map ----
+collision_labels <- c(
+  "0" = "Non-collision",
+  "1" = "Rear-end",
+  "2" = "Head-on",
+  "3" = "rear-to-rear",
+  "4" = "Angle",
+  "5" = "Sideswipe",
+  "6" = "Sideswipe (Opposite)",
+  "7" = "Hit Fixed Object",
+  "8" = "Hit Non-Motorist",
+  "98" = "Other"
+)
+
+# Step 2: Define day of week label map ----
+day_labels <- c(
+  "1" = "Sun",
+  "2" = "Mon",
+  "3" = "Tue",
+  "4" = "Wed",
+  "5" = "Thu",
+  "6" = "Fri",
+  "7" = "Sat"
+)
+
+
+# Step 3: Summarise crash counts by day and collision type ----
+crash_summary <- crashClean |>
   mutate(
-    Month = factor(
-      Month,
+    collision_label = case_when(
+      Collision_Type == "Non-collision" ~ "Non-collision",
+      Collision_Type == "Rear-end" ~ "Rear-end",
+      Collision_Type == "Head-on" ~ "Head-on",
+      Collision_Type == "Backing" ~ "Backing",
+      Collision_Type == "Angle" ~ "Angle",
+      Collision_Type == "Sideswipe same direction" ~ "Sideswipe",
+      Collision_Type == "Sideswipe opposite direction" ~ "Sideswipe (Opposite)",
+      Collision_Type == "Hit fixed object" ~ "Hit Fixed Object",
+      Collision_Type == "Hit non-motorist" ~ "Hit Non-Motorist",
+      .default = "Other"
+    ),
+    day_label = factor(
+      Day,
       levels = c(
-        "January", "February", "March", "April",
-        "May", "June", "July", "August",
-        "September", "October", "November", "December"
+        "Sunday", "Monday", "Tuesday", "Wednesday",
+        "Thursday", "Friday", "Saturday"
       )
     )
-  )
+  ) |>
+  filter(!is.na(day_label), !is.na(collision_label)) |>
+  group_by(day_label, collision_label) |>
+  summarise(count = n(), .groups = "drop")
+
+# Step 4: Plot line chart ----
+ggplot(crash_summary, aes(
+  x = day_label,
+  y = count,
+  color = collision_label,
+  group = collision_label
+)) +
+  scale_y_continuous(breaks = seq(0,120,by = 10)) +
+  geom_line(na.rm = TRUE) +
+  geom_point(aes(shape = collision_label), size = 3, na.rm = TRUE) +
+  labs(
+    title = "Collision Type Frequency by Day of Week",
+    subtitle = "Centre County, Pennsylvania | 2023-2024",
+    x = "Day of Week",
+    y = "Number of Crashes",
+    color = "Collision Type",
+    caption = "Source: PennDOT Crash Data",
+    shape = "Collision Type"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "right",
+    legend.key.size = unit(0.4, "cm"),
+    legend.text = element_text(size = 7),
+    legend.justification = "top",
+    legend.margin = margin(t = 0, unit = "pt"),
+    plot.title = element_text(size = 15, face = "bold",margin = margin(b = 20, unit = "pt")),
+    plot.subtitle = element_text(size = 12, margin = margin(b = 10 ,unit = "pt")),
+    axis.text = element_text(size = 10),
+    axis.text.x = element_text(angle = 45, vjust = 0.5, hjust = 0.5),
+    axis.title.x = element_text(margin = margin(t = 15, unit = "pt")),
+    axis.title.y = element_text(margin = margin(r = 15, unit = "pt")))
+```
+
+{{< pagebreak >}}
+
+### Road Condition *x* Severity Heatmap
+
+The heatmap displays crash counts across road conditions, segmented by severity group.
+
+The dominant road condition was `Dry` and most of those crashes were categorized as less severe. This is expected as most likely drivers would travel under dry conditions, naturally producing higher crash volume. It was also expected that the second highest would be `Wet` because that condition is most likely to still be driven since it isn't considered as dangerous as conditions like `Snow` or `Ice or Frost`*.* An unexpected anomaly was that overall there was only 100 car crashes categorized as `More Severe`*.* The lack of recorded crashes with major severity suggests that Road Condition is not as substantial of a factor when it comes to the worst crashes in Centre County.
+
+```{r}
+#| label: road-severity-heatmap
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-alt: "Heatmap showing crash counts by road condition and severity
+#|   group in Centre County, Pennsylvania, 2023-2024. Dry roads dominate
+#|   with 1,350 less severe and 79 more severe crashes. Wet roads are
+#|   second with 352 less severe and 11 more severe crashes. Mud, dirt,
+#|   or gravel roads show the highest proportion of more severe crashes
+#|   relative to total volume with 6 more severe out of 16 total."
+#| fig-width: 8
+#| fig-height: 7
+# Style Guide: Google R Style Guide
+# Primary Author: Akil Creswell
+# Reviewed by: Jooan Choi
+
+# Step 1: Filter and count ----
+heatmap_data <- crashClean |>
+  filter(
+    !is.na(Road_Condition),
+    Severity_Group != "Unknown"
+  ) |>
+  group_by(Road_Condition, Severity_Group) |>
+  summarise(Crashes = n(), .groups = "drop")
 
 # Step 2: Plot grouped bar chart ----
 ## Year mapped to fill to distinguish 2023 vs 2024
@@ -432,7 +603,16 @@ ggplot(
     fill = factor(Year)
   )
 ) +
-  geom_col(position = "dodge") +
+  geom_tile(color = "#1e407c", linewidth = 0.5) +
+  geom_text(
+    aes(label = Crashes),
+    size = 3
+  ) +
+  scale_fill_gradient(
+    low = "white",
+    high = "#96BEE6",
+    name = "Crash Count"
+  ) +
   labs(
     title = "Crash Counts by Month and Year",
     subtitle = "Centre County, Pennsylvania | 2023-2024",
