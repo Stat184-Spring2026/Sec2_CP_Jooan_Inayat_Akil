@@ -1,6 +1,6 @@
 ---
 title: "A Pattern Based Assessment of Car Crashes in Centre County (2023-2024)"
-author: "Akil Creswell, Jooan Choi, Inayat Roy"
+author: "Akil Creswell, Jooan Choi"
 format:
   pdf:
     pdf-engine: xelatex
@@ -21,8 +21,8 @@ format:
         \subsubsectionfont{\centering\large}
 
 editor: visual
-bibliography: references.bib
-csl: MLA9.csl
+bibliography: references.bib 
+csl: formatting/MLA9.csl
 ---
 
 ```{r}
@@ -32,7 +32,7 @@ csl: MLA9.csl
 #| warning: false
 # Style Guide: Google R Style Guide
 # Primary Author: Akil Creswell
-# Reviewed by: Jooan Choi, Inayat Roy
+# Reviewed by: Jooan Choi
 
 library(tidyverse)
 library(knitr)
@@ -42,7 +42,7 @@ library(dplyr)
 library(readr)
 ```
 
-## Introduction 
+## Introduction
 
 From 2023-2024 there was a recorded 2,097 crashes, which range from minor property damage to fatal collisions. The main goal of this project is examine crash records collected by Pennsylvania Department of Transportation (PennDOT) to answer the following research question: **What patterns in collision type and road conditions characterize crashes of varying severity in Centre County from 2023 to 2024?**
 
@@ -150,8 +150,10 @@ The following attributes were chosen to contribute to answering our research que
 
 {{< pagebreak >}}
 
+## Exploratory Data Analysis
+
 ```{r}
-#| label: data-wrangling
+#| label: jooan-datawrangling
 #| message: false
 #| warning: false
 #| include: false
@@ -335,16 +337,131 @@ crashClean <- crashProgress4 |>
   )
 ```
 
-## Exploratory Data Analysis
+### Data Overview
+
+```{r}
+#| label: jooan-overview-table
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-alt: "Summary table showing total crashes, crashes by year,
+#|   total injuries, total fatalities, and average vehicles per crash
+#|   for Centre County, Pennsylvania, 2023-2024."
+# Style Guide: Google R Style Guide
+# Primary Author: Jooan Choi
+# Reviewed by: Akil Creswell
+
+
+
+# Step 1: Summarise key crash metrics ----
+## Counts, injuries, fatalities, and vehicle averages across both years
+overview_table <- crashClean |>
+  summarize(
+    `Total Crashes` = n(),
+    `2023 Crashes` = sum(Year == 2023),
+    `2024 Crashes` = sum(Year == 2024),
+    `Total Injuries` = sum(INJURY_COUNT, na.rm = TRUE),
+    `Total Fatalities` = sum(FATAL_COUNT, na.rm = TRUE),
+    `Avg Vehicles per Crash` = round(
+      mean(VEHICLE_COUNT, na.rm = TRUE), 2
+    )
+  )
+
+# Step 2: Render as professional table ----
+overview_table |>
+  kable(
+    format = "latex",
+    caption = "Overview of Centre County Crashes, 2023-2024",
+    booktabs = TRUE
+  ) |>
+  kable_styling(
+    latex_options = c("hold_position"),
+    font_size = 10
+  )
+```
+
+The overview table displays aggregate crash metrics for Centre County across 2023 and 2024. As expected for a mid-sized Pennsylvania county, total crash volume is moderate at 2,097 incidents. Notably, 2024 recorded slightly more crashes than 2023. Fatalities remain low relative to total crash volume, suggesting that while crashes are frequent, life-threatening outcomes are uncommon. This supports the pattern identified in the heatmap which showed road conditions in Centre County tend to produce less severe outcomes overall.
+
+### Crashes by Month
+
+```{r}
+#| label: jooan-monthly-crashes
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-alt: "Grouped bar chart showing crash counts for each month
+#|   in Centre County, Pennsylvania, comparing 2023 and 2024.
+#|   October and December 2024 show the highest crash counts.
+#|   2024 generally exceeds 2023 across most months."
+#| fig-width: 8
+#| fig-height: 5
+# Style Guide: Google R Style Guide
+# Primary Author: Jooan Choi
+# Reviewed by: Akil Creswell
+
+
+
+# Step 1: Aggregate crash counts by year and month ----
+## Month factored to preserve calendar order in plot
+crash_monthly <- crashClean |>
+  filter(Month != "Unknown") |>
+  group_by(Year, Month) |>
+  summarize(
+    Count = n(),
+    .groups = "drop"
+  ) |>
+  mutate(
+    Month = factor(
+      Month,
+      levels = c(
+        "January", "February", "March", "April",
+        "May", "June", "July", "August",
+        "September", "October", "November", "December"
+      )
+    )
+  )
+
+# Step 2: Plot grouped bar chart ----
+## Year mapped to fill to distinguish 2023 vs 2024
+## dodge position separates bars within each month
+ggplot(
+  data = crash_monthly,
+  mapping = aes(
+    x = Month,
+    y = Count,
+    fill = factor(Year)
+  )
+) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Crash Counts by Month and Year",
+    subtitle = "Centre County, Pennsylvania | 2023-2024",
+    x = "Month",
+    y = "Number of Crashes",
+    fill = "Year",
+    caption = "Source: PennDOT Crash Data"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.title.x = element_text(margin = margin(t = 10, unit = "pt")),
+    axis.title.y = element_text(margin = margin(r = 10, unit = "pt")),
+    plot.title = element_text(size = 12, face = "bold"),
+    plot.subtitle = element_text(size = 8)
+  )
+
+```
+
+The bar chart displays crash counts by month for 2023 and 2024. Crash volume follows a broadly consistent pattern across both years. A noticeable increase appears in fall months, particularly October and December, while spring and early summer show comparatively lower counts. This fall peak may reflect increased traffic volume from Penn State's academic calendar and early winter weather conditions. The consistency across both years suggests this seasonal pattern is structural rather than anomalous.
 
 ### Seasonal Crash Patterns
 
-The tables display four tables showcasing the crash patterns based on road conditions and area type that the crash occurred in.
+The tables below are showcasing the crash patterns based on road conditions and area type that the crash occurred in.
 
 The dominant pattern across all four seasons is that most crashes occurred on `Dry` roads, with `Property Damage`as the most common severity outcome. The most common collision type was `Hit Fixed Object` signaling that drivers often hit things that weren't moving. The amount of car crashes that occurred on dry roads is unexpected considering how in Winter and Spring the dominant weather types are typically snow (winter) and rain(spring). Summer and Fall's data makes sense when comparing to Winter and Spring due to summer and fall being dryer seasons allowing for more incidents on road. This finding suggests that seasonal factors may not be main contributor to car crashes in Centre County.
 
 ```{r}
-#| label: seasonal-crash-tables
+#| label: akil-seasonalcrashtables
 #| echo: false
 #| message: false
 #| warning: false
@@ -432,7 +549,7 @@ The plot displays frequency of collision types on each day of the week.
 Drivers hitting a fixed object(non moving) was the most common collision type on every day of the week. This specific collision type happened on mostly Fridays and Saturdays. Crashes that were categorized as `Hit Fixed Object` accounted for 722 total incidents in 2023-2024 and was the dominant outcome. This was the highest collision count(by type) of the ten in the datasets. Friday and Saturday combined for 225 of those crashes, showing an end-of-week behavioral pattern. This data aligns with the finding referenced in the article from @romanow2025 that discussed how Friday is Pennsylvania's most common crash day. Some of the causes discussed were heavier traffic, drunk/drugged driving, and Increased fatigue which all seem to be major causes for car crashes.
 
 ```{r}
-#| label: insight-chart
+#| label: akil-insight-chart
 #| echo: false
 #| message: false
 #| warning: false
@@ -544,7 +661,7 @@ The heatmap displays crash counts across road conditions, segmented by severity 
 The dominant road condition was `Dry` and most of those crashes were categorized as less severe. This is expected as most likely drivers would travel under dry conditions, naturally producing higher crash volume. It was also expected that the second highest would be `Wet` because that condition is most likely to still be driven since it isn't considered as dangerous as conditions like `Snow` or `Ice or Frost`*.* An unexpected anomaly was that overall there was only 100 car crashes categorized as `More Severe`*.* The lack of recorded crashes with major severity suggests that Road Condition is not as substantial of a factor when it comes to the worst crashes in Centre County.
 
 ```{r}
-#| label: road-severity-heatmap
+#| label: akil-road-severity-heatmap
 #| echo: false
 #| message: false
 #| warning: false
@@ -634,7 +751,6 @@ This project followed the CRediT Contributor Role Taxonomy to document individua
 
 **Jooan** contributed to data curation (wrangling and cleaning of both CSV files), formal analysis (overview summary table, monthly crash bar chart), and visualization.
 
-**Inayat** contributed to
 
 {{< pagebreak >}}
 
