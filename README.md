@@ -26,9 +26,7 @@ Romanow Law Group. “Friday Is the Deadliest Day to Drive in Pennsylvania | Rom
 - `CRASH_CENTRE_2024.csv` — 1,072 crash records
 - `Data_overview.md` — variable definitions and code legend
 
-All data sourced directly from PennDOT's official crash database.
-Data is collected at the crash level — each row represents one
-reported crash, identified by a unique Crash Record Number (CRN).
+All data sourced directly from PennDOT's official crash database. Data is collected at the crash level — each row represents one reported crash, identified by a unique Crash Record Number (CRN).
 
 ---
 ## Current Plan (Based on Guidelines.md)
@@ -62,21 +60,25 @@ reported crash, identified by a unique Crash Record Number (CRN).
 │   ├── CRASH_CENTRE_2023.csv
 │   ├── CRASH_CENTRE_2024.csv
 │   └── Crash_Data_Dictionary_2025.pdf
-├── Graphs&Tables_Images/
-│   └── Collision Type Frequency by Day of Week.png
 ├── formatting/
 │   ├── MLA9.csl
 │   └── apa7.csl
-├── .github/
+├── github/
 │   ├── base.txt
-│   ├── .gitattributes
-│   ├── .gitignore
-│   └── .lintr
+│   ├── gitattributes.txt
+│   ├── gitignore.txt
+│   └── lintr.txt
+├── plots_tables/
+│   ├── Collision Type Frequency by Day of Week.png
+│   ├── RC_S_heatmap.png
+│   ├── Summer_Fall_tables.png
+│   └── Winter_Spring_tables.png
 ├── Crash Project.qmd
 ├── Dataset_overview.md
 ├── Project_Guidelines.md
 ├── README.md
-└── linting_script.R
+├── linting_script.R
+└── references.bib
 ```
 
 ---
