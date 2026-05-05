@@ -7,7 +7,7 @@ This project aims to answer the questions: **"What patterns in collision type an
 ---
 ### Interesting Insight
 
-**Drivers hitting a fixed object (non moving) was the most common collision type on every day of the week. This specific collision type happened on mostly Fridays and Saturdays**
+**Drivers hitting a fixed object (non-moving) was the most common collision type on every day of the week. This specific collision type happened on mostly Fridays and Saturdays**
 
 Crashes that were categorized as "Hit Fixed Object" accounted for 722 total incidents in 2023-2024. This was the highest collision count(by type) of the ten in the datasets. Friday and Saturday combined for 225 of those crashes, showing a end-of-week behavioral pattern.
 
