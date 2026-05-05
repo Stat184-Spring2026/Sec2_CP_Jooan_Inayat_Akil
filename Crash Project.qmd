@@ -458,7 +458,7 @@ The bar chart displays crash counts by month for 2023 and 2024. Crash volume fol
 
 The tables below are showcasing the crash patterns based on road conditions and area type that the crash occurred in.
 
-The dominant pattern across all four seasons is that most crashes occurred on `Dry` roads, with `Property Damage`as the most common severity outcome. The most common collision type was `Hit Fixed Object` signaling that drivers often hit things that weren't moving. The amount of car crashes that occurred on dry roads is unexpected considering how in Winter and Spring the dominant weather types are typically snow (winter) and rain(spring). Summer and Fall's data makes sense when comparing to Winter and Spring due to summer and fall being dryer seasons allowing for more incidents on road. This finding suggests that seasonal factors may not be main contributor to car crashes in Centre County.
+The dominant pattern across all four seasons is that most crashes occurred on `Dry` roads, with `Property Damage` as the most common severity outcome. The most common collision type was `Hit Fixed Object` signaling that drivers often hit things that weren't moving. The amount of car crashes that occurred on dry roads is unexpected considering how in Winter and Spring the dominant weather types are typically snow (winter) and rain(spring). Summer and Fall's data makes sense when comparing to Winter and Spring due to summer and fall being dryer seasons allowing for more incidents on road. This finding suggests that seasonal factors may not be main contributor to car crashes in Centre County.
 
 ```{r}
 #| label: akil-seasonalcrashtables
