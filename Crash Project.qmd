@@ -546,7 +546,7 @@ for (s in seasons) {
 
 The plot displays frequency of collision types on each day of the week.
 
-Drivers hitting a fixed object(non moving) was the most common collision type on every day of the week. This specific collision type happened on mostly Fridays and Saturdays. Crashes that were categorized as `Hit Fixed Object` accounted for 722 total incidents in 2023-2024 and was the dominant outcome. This was the highest collision count(by type) of the ten in the datasets. Friday and Saturday combined for 225 of those crashes, showing an end-of-week behavioral pattern. This data aligns with the finding referenced in the article from @romanow2025 that discussed how Friday is Pennsylvania's most common crash day. Some of the causes discussed were heavier traffic, drunk/drugged driving, and Increased fatigue which all seem to be major causes for car crashes.
+Drivers hitting a fixed object (non moving) was the most common collision type on every day of the week. This specific collision type happened on mostly Fridays and Saturdays. Crashes that were categorized as `Hit Fixed Object` accounted for 722 total incidents in 2023-2024 and was the dominant outcome. This was the highest collision count(by type) of the ten in the datasets. Friday and Saturday combined for 225 of those crashes, showing an end-of-week behavioral pattern. This data aligns with the finding referenced in the article from @romanow2025 that discussed how Friday is Pennsylvania's most common crash day. Some of the causes discussed were heavier traffic, drunk/drugged driving, and Increased fatigue which all seem to be major causes for car crashes.
 
 ```{r}
 #| label: akil-insight-chart
