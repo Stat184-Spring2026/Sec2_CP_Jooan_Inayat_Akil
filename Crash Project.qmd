@@ -46,7 +46,7 @@ library(readr)
 
 From 2023-2024 there was a recorded 2,097 crashes, which range from minor property damage to fatal collisions. The main goal of this project is to examine crash records collected by Pennsylvania Department of Transportation (PennDOT) to answer the following research question: **What patterns in collision type and road conditions characterize crashes of varying severity in Centre County from 2023 to 2024?**
 
-The secondary goal is to explore the data to be able discern possible ways to curb accidents in Centre County. The conditions are seemingly never consistent due to unpredictable weather patterns in the area, which makes condition based analysis like this one important.
+The secondary goal is to explore the data to discern possible ways to curb accidents in Centre County. The conditions are seemingly never consistent due to unpredictable weather patterns in the area, which makes condition based analysis like this one important.
 
 This analysis follows the Exploratory Data Analysis paradigm and uses the Tidyverse coding paradigm in R, following the Google R Style Guide.
 
