@@ -76,7 +76,7 @@ This dataset does not directly involve Indigenous communities as there is no inf
 
 ## Case and Attribute Description
 
-Each case in this dataset is an individual car crash recorded in Centre County, Pennsylvania between January 1st, 2023 - December 31st, 2024 identified by Crash Record Number(`CRN`). Each unit is a crash, not a vehicle nor individual.
+Each case in this dataset is an individual car crash recorded in Centre County, Pennsylvania between January 1st, 2023 - December 31st, 2024 identified by Crash Record Number (`CRN`). Each unit is a crash, not a vehicle nor individual.
 
 The following attributes were chosen to contribute to answering our research question.\
 
