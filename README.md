@@ -1,4 +1,4 @@
-# A Pattern Based Assessment of Car Crashes in Centre County (2023-2024)
+# A Pattern Based Assessment of Traffic Crashes in Centre County (2023-2024)
 
 ## Overview
 
