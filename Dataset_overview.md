@@ -32,9 +32,10 @@ Files:
 ### Seasonal Crash Tables (seasonal-crash-tables)
 - **Plan:** Summarize crash patterns by road condition and
   area type across four seasons to identify seasonal trends
-- **Code:** `case_when()` for season derivation; `group_by()`
-  and `summarise()` for mode collision and severity per group;
-  `kable()` loop for four tables
+- **Code:**
+  - `case_when()` for season derivation
+  - `group_by()` and `summarise()` for mode collision and severity per group
+  - `kable()` loop for four tables
 - **Improve:** Fixed `align` vector length; removed
   `hold_position` conflict; debugged loop variable scoping
 - **Plan (next):** EPT narrative written to accompany tables
