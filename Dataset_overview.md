@@ -40,6 +40,11 @@ Files:
   `hold_position` conflict; debugged loop variable scoping
 - **Plan (next):** EPT narrative written to accompany tables
 
+- ### Monthly Crash Counts (monthly-crashes)
+- **Plan:** Compare monthly crash volume between 2023 and 2024
+- **Code:** Summarized crash counts by `Year` and `Month`
+- **Improve:** Reordered months chronologically and rotated x-axis labels
+
 ### Road Condition x Severity Heatmap (road-severity-heatmap)
 - **Plan:** Visualize crash counts across road conditions
   segmented by severity group to assess road condition impact
@@ -48,7 +53,6 @@ Files:
 - **Improve:** Added axis title margins; refined color gradient;
   updated alt text to reflect key patterns
 - **Plan (next):** EPT narrative written to accompany figure
-
 ---
 ## Variables Used in Analysis
 
