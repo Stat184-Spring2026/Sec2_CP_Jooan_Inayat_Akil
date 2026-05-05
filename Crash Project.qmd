@@ -56,7 +56,7 @@ This analysis follows the Exploratory Data Analysis paradigm and uses the Tidyve
 
 ### Data Provenance
 
-The data used in this project was obtained for the Pennsylvania Department of Transportation (PennDOT) crash data portal [@penndot2026]. Two CSV files were downloaded: `CRASH_CENTRE_2023.csv`, containing 1,025 crash records, and `CRASH_CENTRE_2024.csv`, containing 1,072 crash records, to combine for a total of 2,097 records across both years. Each record represents a unique crash event with ID, Crash Record Number (`CRN`).
+The data used in this project was obtained form the Pennsylvania Department of Transportation (PennDOT) crash data portal [@penndot2026]. Two CSV files were downloaded: `CRASH_CENTRE_2023.csv`, containing 1,025 crash records, and `CRASH_CENTRE_2024.csv`, containing 1,072 crash records, to combine for a total of 2,097 records across both years. Each record represents a unique crash event with ID, Crash Record Number (`CRN`).
 
 Local Centre County law enforcement collected the data and submitted it into PennDOT's statewide systems. To interpret the data we used the data dictionary provided by PennDOT, which was obtained from the same portal.
 
