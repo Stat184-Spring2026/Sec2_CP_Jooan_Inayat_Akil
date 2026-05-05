@@ -44,9 +44,9 @@ library(readr)
 
 ## Introduction
 
-From 2023-2024 there was a recorded 2,097 crashes, which range from minor property damage to fatal collisions. The main goal of this project is examine crash records collected by Pennsylvania Department of Transportation (PennDOT) to answer the following research question: **What patterns in collision type and road conditions characterize crashes of varying severity in Centre County from 2023 to 2024?**
+From 2023-2024 there was a recorded 2,097 crashes, which range from minor property damage to fatal collisions. The main goal of this project is to examine crash records collected by Pennsylvania Department of Transportation (PennDOT) to answer the following research question: **What patterns in collision type and road conditions characterize crashes of varying severity in Centre County from 2023 to 2024?**
 
-The secondary goal is to explore the data to be able discern possible ways to curb accidents in Centre County. The conditions are seemingly never consistent due to unpredictable weather patterns in the area, which makes condition based analysis like this one important.
+The secondary goal is to explore the data to discern possible ways to curb accidents in Centre County. The conditions are seemingly never consistent due to unpredictable weather patterns in the area, which makes condition based analysis like this one important.
 
 This analysis follows the Exploratory Data Analysis paradigm and uses the Tidyverse coding paradigm in R, following the Google R Style Guide.
 
@@ -56,7 +56,7 @@ This analysis follows the Exploratory Data Analysis paradigm and uses the Tidyve
 
 ### Data Provenance
 
-The data used in this project was obtained for the Pennsylvania Department of Transportation (PennDOT) crash data portal [@penndot2026]. Two CSV files were downloaded: `CRASH_CENTRE_2023.csv`, containing 1,025 crash records, and `CRASH_CENTRE_2024.csv`, containing 1,072 crash records, to combine for a total of 2,097 records across both years. Each record represents a unique crash event with ID, Crash Record Number (`CRN`).
+The data used in this project was obtained form the Pennsylvania Department of Transportation (PennDOT) crash data portal [@penndot2026]. Two CSV files were downloaded: `CRASH_CENTRE_2023.csv`, containing 1,025 crash records, and `CRASH_CENTRE_2024.csv`, containing 1,072 crash records, to combine for a total of 2,097 records across both years. Each record represents a unique crash event with ID, Crash Record Number (`CRN`).
 
 Local Centre County law enforcement collected the data and submitted it into PennDOT's statewide systems. To interpret the data we used the data dictionary provided by PennDOT, which was obtained from the same portal.
 
@@ -76,7 +76,7 @@ This dataset does not directly involve Indigenous communities as there is no inf
 
 ## Case and Attribute Description
 
-Each case in this dataset is an individual car crash recorded in Centre County, Pennsylvania between January 1st, 2023 - December 31st, 2024 identified by Crash Record Number(`CRN`). Each unit is a crash, not a vehicle nor individual.
+Each case in this dataset is an individual car crash recorded in Centre County, Pennsylvania between January 1st, 2023 - December 31st, 2024 identified by Crash Record Number (`CRN`). Each unit is a crash, not a vehicle nor individual.
 
 The following attributes were chosen to contribute to answering our research question.\
 
@@ -458,7 +458,7 @@ The bar chart displays crash counts by month for 2023 and 2024. Crash volume fol
 
 The tables below are showcasing the crash patterns based on road conditions and area type that the crash occurred in.
 
-The dominant pattern across all four seasons is that most crashes occurred on `Dry` roads, with `Property Damage`as the most common severity outcome. The most common collision type was `Hit Fixed Object` signaling that drivers often hit things that weren't moving. The amount of car crashes that occurred on dry roads is unexpected considering how in Winter and Spring the dominant weather types are typically snow (winter) and rain(spring). Summer and Fall's data makes sense when comparing to Winter and Spring due to summer and fall being dryer seasons allowing for more incidents on road. This finding suggests that seasonal factors may not be main contributor to car crashes in Centre County.
+The dominant pattern across all four seasons is that most crashes occurred on `Dry` roads, with `Property Damage` as the most common severity outcome. The most common collision type was `Hit Fixed Object` signaling that drivers often hit things that weren't moving. The amount of car crashes that occurred on dry roads is unexpected considering how in Winter and Spring the dominant weather types are typically snow (winter) and rain (spring). Summer and Fall's data makes sense when comparing to Winter and Spring due to summer and fall being dryer seasons allowing for more incidents on road. This finding suggests that seasonal factors may not be a main contributor to car crashes in Centre County.
 
 ```{r}
 #| label: akil-seasonalcrashtables
@@ -546,7 +546,7 @@ for (s in seasons) {
 
 The plot displays frequency of collision types on each day of the week.
 
-Drivers hitting a fixed object(non moving) was the most common collision type on every day of the week. This specific collision type happened on mostly Fridays and Saturdays. Crashes that were categorized as `Hit Fixed Object` accounted for 722 total incidents in 2023-2024 and was the dominant outcome. This was the highest collision count(by type) of the ten in the datasets. Friday and Saturday combined for 225 of those crashes, showing an end-of-week behavioral pattern. This data aligns with the finding referenced in the article from @romanow2025 that discussed how Friday is Pennsylvania's most common crash day. Some of the causes discussed were heavier traffic, drunk/drugged driving, and Increased fatigue which all seem to be major causes for car crashes.
+Drivers hitting a fixed object (non-moving) was the most common collision type on every day of the week. This specific collision type occurred most often on Fridays and Saturdays. Crashes that were categorized as `Hit Fixed Object` accounted for 722 total incidents in 2023-2024 and was the dominant outcome. This was the highest collision count(by type) of the ten in the datasets. Friday and Saturday combined for 225 of those crashes, showing a possible end-of-week behavioral pattern. This data aligns with the finding referenced in the article from @romanow2025 that discussed how Friday is Pennsylvania's most common crash day. Some of the causes discussed were heavier traffic, drunk/drugged driving, and Increased fatigue which all seem to be major causes for car crashes.
 
 ```{r}
 #| label: akil-insight-chart
