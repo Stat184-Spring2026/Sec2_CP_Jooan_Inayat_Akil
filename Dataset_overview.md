@@ -40,7 +40,7 @@ Files:
   `hold_position` conflict; debugged loop variable scoping
 - **Plan (next):** EPT narrative written to accompany tables
 
-- ### Monthly Crash Counts (monthly-crashes)
+### Monthly Crash Counts (monthly-crashes)
 - **Plan:** Compare monthly crash volume between 2023 and 2024
 - **Code:** Summarized crash counts by `Year` and `Month`
 - **Improve:** Reordered months chronologically and rotated x-axis labels
