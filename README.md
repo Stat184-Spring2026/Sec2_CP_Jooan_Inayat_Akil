@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project will set to answer the questions: **"What patterns in collision type and road conditions characterize crashes of varying severity in Centre County from 2023 to 2024?"**
+This project aims to answer the questions: **"What patterns in collision type and road conditions characterize crashes of varying severity in Centre County from 2023 to 2024?"**
 
 ---
 ### Interesting Insight
